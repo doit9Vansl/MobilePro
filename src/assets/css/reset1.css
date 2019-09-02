@@ -1,0 +1,30 @@
+@charset "utf-8";
+html,body,ul,ol,img,h1,h2,h3,h4,h5,h6,p,input,form{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-size: 12px;
+}
+a{
+    color:#000;
+    text-decoration:none;
+}
+ul,ol li{
+    list-style:none;
+    text-align:center;
+}
+input{
+    outline: none;
+    border:none;
+}
+i,em{
+    font-style: normal;
+}
+h1,h2,h3,h4,h5,h6{
+    font-weight: normal;
+}
+table{
+    border-collapse:collapse;
+    border-spacing:0;
+}
