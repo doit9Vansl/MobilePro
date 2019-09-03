@@ -1,13 +1,16 @@
 <template>
-    <div>
-        <h2>this is cinemas</h2>
-    </div>
+  <div>
+    <cinema-hea></cinema-hea>
+  </div>
 </template>
-<style scoped lang="scss">
-div {
-  h2 {
-    margin: 30px;
-    text-align: center;
+<script>
+import CinemaHea from './components/CinemaHea'
+export default {
+  components:{
+    CinemaHea,
   }
-}
+};
+</script>
+<style scoped lang="scss">
+
 </style>

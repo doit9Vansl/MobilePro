@@ -5,7 +5,7 @@ const requestData = {
   //banner图请求接口
   getBanner() {
     return Axios({
-      url: "gateway?type=2&cityId=520100&k=1278907",
+      url: "gateway?type=2&CITY_ID&k=1278907",
       data: {
         xHost: "mall.cfg.common-banner"
       }
@@ -16,7 +16,7 @@ const requestData = {
   getNowPlaying(query) {
     // console.log(query)
     // return; 
-    let url = `gateway?cityId=110100&pageNum=${query.pageNum}&pageSize=${query.pageSize}&type=${query.type}&k=7287648`
+    let url = `gateway?CITY_ID&pageNum=${query.pageNum}&pageSize=${query.pageSize}&type=${query.type}&k=7287648`
     return Axios({
       url,
       data: {

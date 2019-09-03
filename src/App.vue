@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <router-view></router-view>
+    <transition name="fade">
+      <router-view></router-view>
+    </transition>
     <nav-bar v-show="showNav"></nav-bar>
   </div>
 </template>
@@ -26,12 +28,20 @@ export default {
           this.showNav = false;
         }
       },
-      deep:true,
-      immediate:true
+      deep: true,
+      immediate: true
     }
   },
   methods: {}
 };
 </script>
 <style lang="scss">
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
 </style>

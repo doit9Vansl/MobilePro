@@ -7,13 +7,15 @@ import ComingSoon from '@/views/films/comingSoon'
 import Cinemas from '@/views/cinemas/cinemas'
 import Active from '@/views/active/active'
 import Center from '@/views/center/center'
+import City from '@/views/city'
+import store from './store'
 Vue.use(Router)
 //解决路由跳转相同地址报错
 const originalPush = Router.prototype.push;
 Router.prototype.push = function push(location) {
   return originalPush.call(this, location).catch(err => err)
 }
-export default new Router({
+const router = new Router({
   routes: [{
       path: '/',
       redirect: '/films',
@@ -22,8 +24,9 @@ export default new Router({
       path: '/films',
       name: 'films',
       component: Films,
-      meta:{
-        isNavBar:true
+      meta: {
+        page:1,
+        isNavBar: true
       },
       children: [{
         path: '/films',
@@ -31,28 +34,31 @@ export default new Router({
       }, {
         path: 'nowplaying',
         component: NowPlaying,
-        meta:{
-          isNavBar:true
+        meta: {
+          page:1,
+          isNavBar: true
         }
       }, {
         path: 'comingSoon',
         component: ComingSoon,
-        meta:{
-          isNavBar:true
+        meta: {
+          page:1,
+          isNavBar: true
         }
       }]
     },
     {
       path: '/film/:id',
-      name:'filmsDetail',
+      name: 'filmsDetail',
       component: FilmsDetail
     },
     {
       path: '/cinemas',
       name: 'cinemas',
       component: Cinemas,
-      meta:{
-        isNavBar:true
+      meta: {
+        page:2,
+        isNavBar: true
       }
     },
     {
@@ -64,9 +70,23 @@ export default new Router({
       path: '/center',
       name: 'center',
       component: Center,
-      meta:{
-        isNavBar:true
+      meta: {
+        page:4,
+        isNavBar: true
       }
+    }, {
+      path: '/city',
+      name: "city",
+      component: City
     }
   ]
 })
+let whiteList = ['/center', '/city']
+router.beforeEach((to, from, next) => {
+  if (whiteList.indexOf(to.path) === -1 && !store.state.cityId) {
+    next('/city')
+    return
+  }
+  next()
+})
+export default router

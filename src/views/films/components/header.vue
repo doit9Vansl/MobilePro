@@ -1,8 +1,8 @@
 <template>
   <header class="header-title">
     <div class="header-title-left">
-      <span class="city">
-        <i>北京</i>
+      <span class="city" @click="$router.push('/city')">
+        <i>{{this.$store.state.cityName}}</i>
         <img src="@/assets/images/down-arrow.png" />
       </span>
     </div>
@@ -11,7 +11,9 @@
   </header>
 </template>
 <script>
-export default {};
+export default {
+
+};
 </script>
 <style scoped>
 .header-title{

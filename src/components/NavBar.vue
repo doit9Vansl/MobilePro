@@ -2,13 +2,15 @@
   <ul class="nav-bar">
     <li>
       <router-link to="/">
-        <img src="@/assets/images/film.png" />
+        <img src="@/assets/images/film.png" v-show="$route.meta.page==1" />
+        <img src="@/assets/images/film2.png" v-show="$route.meta.page!==1" />
         <span>电影</span>
       </router-link>
     </li>
     <li>
       <router-link to="/cinemas">
-        <img src="@/assets/images/download.png" />
+        <img src="@/assets/images/download.png" v-show="$route.meta.page!==2" />
+        <img src="@/assets/images/download2.png" v-show="$route.meta.page==2" />
         <span>影院</span>
       </router-link>
     </li>
@@ -20,7 +22,8 @@
     </li>
     <li>
       <router-link to="/center">
-        <img src="@/assets/images/my.png" />
+        <img src="@/assets/images/my.png" v-show="$route.meta.page!==4" />
+        <img src="@/assets/images/my2.png" v-show="$route.meta.page==4" />
         <span>我的</span>
       </router-link>
     </li>
