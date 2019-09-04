@@ -8,6 +8,7 @@
     <city-index
       v-if="cityList.length"
       :indexes="indexes"
+      :cityList="cityList"
       :dataList="lastCityData"
       @changeCity="againSelectCity"
     ></city-index>

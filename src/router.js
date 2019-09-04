@@ -5,6 +5,7 @@ import NowPlaying from '@/views/films/nowPlaying'
 import FilmsDetail from '@/views/films/filmDetail'
 import ComingSoon from '@/views/films/comingSoon'
 import Cinemas from '@/views/cinemas/cinemas'
+import CinemaDetail from '@/views/cinemas/cinemaDetail'
 import Active from '@/views/active/active'
 import Center from '@/views/center/center'
 import City from '@/views/city'
@@ -25,7 +26,7 @@ const router = new Router({
       name: 'films',
       component: Films,
       meta: {
-        page:1,
+        page: 1,
         isNavBar: true
       },
       children: [{
@@ -35,14 +36,14 @@ const router = new Router({
         path: 'nowplaying',
         component: NowPlaying,
         meta: {
-          page:1,
+          page: 1,
           isNavBar: true
         }
       }, {
         path: 'comingSoon',
         component: ComingSoon,
         meta: {
-          page:1,
+          page: 1,
           isNavBar: true
         }
       }]
@@ -57,7 +58,7 @@ const router = new Router({
       name: 'cinemas',
       component: Cinemas,
       meta: {
-        page:2,
+        page: 2,
         isNavBar: true
       }
     },
@@ -71,13 +72,17 @@ const router = new Router({
       name: 'center',
       component: Center,
       meta: {
-        page:4,
+        page: 4,
         isNavBar: true
       }
     }, {
       path: '/city',
       name: "city",
       component: City
+    }, {
+      path: '/cinema/:cmId/film/:fmId',
+      name: 'cinemaDetail',
+      component: CinemaDetail
     }
   ]
 })

@@ -1,26 +1,47 @@
 <template>
   <!-- 电影剧照介绍 -->
-  <div class="film-photo-desc">
-    <h3>
-      剧照
-      <p>
-        全部(<i>{{photos.length}}</i>)>
-      </p>
-    </h3>
-    <div class="photos">
-      <ul>
-        <li v-for="(item,index) in photos" :key="index">
-          <div class="photos-item">
-            <img :src="item" alt />
-          </div>
-        </li>
-      </ul>
+  <div>
+    <div class="film-photo-desc">
+      <h3>
+        剧照
+        <p @click="showAll">
+          全部(<i>{{photos.length}}</i>)>
+        </p>
+      </h3>
+      <div class="photos">
+        <ul>
+          <li v-for="(item,index) in photos" :key="index">
+            <div class="photos-item">
+              <img :src="item" alt />
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
+    
+    <van-image-preview v-model="show" :images="photos" @change="onChange">
+      <template v-slot:index>第{{ index }}页</template>
+    </van-image-preview>
   </div>
 </template>
 <script>
 export default {
-  props: ["photos"]
+  props: ["photos"],
+  data() {
+    return {
+      show: false,
+      index: 1
+    };
+  },
+  methods: {
+    onChange(index) {
+      this.index = index+1;
+    },
+    showAll(){
+      this.show = true
+    }
+
+  }
 };
 </script>
 <style scoped lang="scss">
@@ -78,5 +99,7 @@ export default {
     }
   }
 }
-.photos::-webkit-scrollbar {display:none}
+.photos::-webkit-scrollbar {
+  display: none;
+}
 </style>

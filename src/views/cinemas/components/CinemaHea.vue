@@ -1,8 +1,8 @@
 <template>
   <header class="header">
     <div class="left">
-      <div class="city">
-        <span>北京</span>
+      <div class="city" @click="$router.push('/city')">
+        <span>{{$store.state.cityName}}</span>
         <img src="@/assets/images/Cinemas.png" />
       </div>
     </div>
@@ -23,9 +23,9 @@ export default {};
 </script>
 <style scoped lang="scss">
 .header {
-  position: fixed;
-  top: 0;
-  left: 0;
+  // position: fixed;
+  // top: 0;
+  // left: 0;
   width: 100%;
   height: 0.88rem;
   line-height: 0.88rem;
@@ -35,6 +35,8 @@ export default {};
   z-index: 3000;
   background-color: #fff;
   display: flex;
+  // border-bottom: 1px solid #ededed;
+  color: #ededed;
   & > div {
     float: left;
     height: 0.88rem;

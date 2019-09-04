@@ -4,6 +4,7 @@
       v-model="searchVal"
       placeholder="输入城市名或拼音"
       show-action
+      background="#f4f4f4"
       @search="onSearch"
       @cancel="onCancel"
     />
@@ -13,23 +14,26 @@
 export default {
   data() {
     return {
-      searchVal:null,
+      searchVal: null
     };
   },
   methods: {
+    sendSearch() {
+      this.$emit("getV", this.searchVal);
+    },
     onSearch() {},
-    onCancel() {},
-    sendSearch(){
-      this.$emit('getV',this.searchVal)
-    }
+    onCancel() {}
   },
   updated() {
-    this.sendSearch()
+    this.sendSearch();
   }
 };
 </script>
-<style scoped>
+<style scoped lang="scss">
 .search {
   background-color: #fff;
+  .van-search__content {
+    background-color: #fff !important;
+  }
 }
 </style>

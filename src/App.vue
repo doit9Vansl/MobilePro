@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <transition name="fade">
+    <!-- <transition name="fade"> -->
       <router-view></router-view>
-    </transition>
+    <!-- </transition> -->
     <nav-bar v-show="showNav"></nav-bar>
   </div>
 </template>
@@ -39,9 +39,11 @@ export default {
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.5s;
+  transform: translate(100%, 0);
 }
 .fade-enter,
 .fade-leave-to {
   opacity: 0;
+  transform: translate(-100%, 0);
 }
 </style>
