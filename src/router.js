@@ -80,7 +80,7 @@ const router = new Router({
       name: "city",
       component: City
     }, {
-      path: '/cinema/:cmId/film/:fmId',
+      path: '/cinema/:cmId/film',
       name: 'cinemaDetail',
       component: CinemaDetail
     }

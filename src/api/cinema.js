@@ -8,3 +8,23 @@ export const getCmList = (e) => {
     }
   })
 }
+
+//影院详情
+export const getCmDetail = (id) => {
+  return Axios({
+    url: `gateway/?cinemaId=${id}&k=4965443`,
+    data: {
+      xHost: 'mall.film-ticket.cinema.info'
+    }
+  })
+}
+
+//影院电影
+export const getCmFilms = (id) => {
+  return Axios({
+    url: `gateway/?cinemaId=${id}&k=4965443`,
+    data: {
+      xHost: 'mall.film-ticket.film.cinema-show-film'
+    }
+  })
+}

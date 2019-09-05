@@ -1,18 +1,18 @@
 <template>
   <div class="cinema-list-wrap">
     <ul class="cinema-list">
-      <li class="cinema-list-item" v-for="(item,index) in CmList" :key="index">
-          <div class="cinema-info">
-            <p>{{item.name}}</p>
-            <p v-if='item.ticketTypes'>
-              <span v-for="(Types) in item.ticketTypes" :key="Types.id">{{Types.name}}</span>
-            </p>
-            <p>{{item.address}}</p>
-          </div>
-          <div class="cinema-price">
-            <span>¥{{item.lowPrice/100}}起</span>
-            <span>距离未知</span>
-          </div>
+      <li class="cinema-list-item" v-for="(item,index) in CmList" :key="index" @click="$router.push({name:'cinemaDetail',params:{cmId:item.cinemaId}})">
+        <div class="cinema-info">
+          <p>{{item.name}}</p>
+          <p v-if="item.ticketTypes">
+            <span v-for="(Types) in item.ticketTypes" :key="Types.id">{{Types.name}}</span>
+          </p>
+          <p>{{item.address}}</p>
+        </div>
+        <div class="cinema-price">
+          <span>¥{{item.lowPrice/100}}起</span>
+          <span>距离未知</span>
+        </div>
       </li>
     </ul>
   </div>
@@ -58,7 +58,7 @@ export default {
             color: #797d82;
             font-size: 0.24rem;
             margin-top: 0.2rem;
-            span{
+            span {
               margin-right: 0.2rem;
             }
           }
